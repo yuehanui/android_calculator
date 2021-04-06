@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="calculatorViewModel"
+            type="com.bytedance.wyh.CalculatorViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CalculatorFragment" >
+    <!-- Guidelines -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_25"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"
+             />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_50"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_75"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+    <!--  -->
+
+        <TextView
+            android:id="@+id/viewer"
+            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:gravity="bottom"
+            android:textAlignment="textEnd"
+            android:textSize="30dp"
+            android:text="@{calculatorViewModel.theInput}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/ac"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewer"
+            android:text="AC"
+            android:onClick="@{()->calculatorViewModel.onClear()}"/>
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/c"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_50"
+            app:layout_constraintLeft_toRightOf="@id/guideline_25"
+            app:layout_constraintTop_toBottomOf="@id/viewer"
+            android:text="C"
+            android:onClick="@{()->calculatorViewModel.onDelete()}"/>
+
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/divide"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_75"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewer"
+            android:text="÷"
+            android:onClick="@{()->calculatorViewModel.onPressed('÷')}"/>
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/seven"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ac"
+            android:text="7"
+            android:onClick="@{()->calculatorViewModel.onPressed('7')}"
+/>
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/eight"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@id/guideline_25"
+            app:layout_constraintRight_toLeftOf="@id/guideline_50"
+            app:layout_constraintTop_toBottomOf="@id/ac"
+            android:text="8"
+            android:onClick="@{()->calculatorViewModel.onPressed('8')}"
+/>
+
+        <com.bytedance.wyh.MyCustomTextView
+
+            android:id="@+id/nine"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_50"
+            app:layout_constraintRight_toLeftOf="@+id/guideline_75"
+            app:layout_constraintTop_toBottomOf="@id/ac"
+            android:text="9"
+            android:onClick="@{()->calculatorViewModel.onPressed('9')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/multiply"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_75"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ac"
+            android:text="x"
+            android:onClick="@{()->calculatorViewModel.onPressed('*')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/four"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seven"
+            android:text="4"
+            android:textColor="@color/white"
+            android:onClick="@{()->calculatorViewModel.onPressed('4')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/five"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@id/guideline_25"
+            app:layout_constraintRight_toLeftOf="@id/guideline_50"
+            app:layout_constraintTop_toBottomOf="@id/seven"
+            android:text="5"
+            android:onClick="@{()->calculatorViewModel.onPressed('5')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+
+            android:id="@+id/six"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_50"
+            app:layout_constraintRight_toLeftOf="@+id/guideline_75"
+            app:layout_constraintTop_toBottomOf="@id/seven"
+            android:text="6"
+            android:onClick="@{()->calculatorViewModel.onPressed('6')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/minus"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_75"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seven"
+            android:text="-"
+            android:onClick="@{()->calculatorViewModel.onPressed('-')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/one"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four"
+            android:text="1"
+            android:onClick="@{()->calculatorViewModel.onPressed('1')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/two"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@id/guideline_25"
+            app:layout_constraintRight_toLeftOf="@id/guideline_50"
+            app:layout_constraintTop_toBottomOf="@id/four"
+            android:text="2"
+            android:onClick="@{()->calculatorViewModel.onPressed('2')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+
+            android:id="@+id/three"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_50"
+            app:layout_constraintRight_toLeftOf="@+id/guideline_75"
+            app:layout_constraintTop_toBottomOf="@id/four"
+            android:text="3"
+            android:onClick="@{()->calculatorViewModel.onPressed('3')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/add"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_75"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four"
+            android:text="+"
+            android:onClick="@{()->calculatorViewModel.onPressed('+')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/zero"
+            style="@style/buttonStyle"
+            app:layout_constraintRight_toLeftOf="@id/guideline_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/one"
+            android:text="0"
+            android:onClick="@{()->calculatorViewModel.onPressed('0')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/dot"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_50"
+            app:layout_constraintRight_toLeftOf="@+id/guideline_75"
+            app:layout_constraintTop_toBottomOf="@id/one"
+            android:text="."
+            android:onClick="@{()->calculatorViewModel.onPressed('.')}"
+            />
+
+        <com.bytedance.wyh.MyCustomTextView
+            android:id="@+id/equal"
+            style="@style/buttonStyle"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_75"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/one"
+            android:text="="
+            android:onClick="@{()->calculatorViewModel.onCalculate()}"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
